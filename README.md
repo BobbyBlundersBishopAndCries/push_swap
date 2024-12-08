@@ -32,7 +32,8 @@ the same algorithm until a has the big values in ascending order:
 
 using the chunks I have I should be able to sort the stack b in descending way (top of the stack / head of the stack has the biggest number and so on)
 
-![image](https://github.com/user-attachments/assets/977c5e56-8ca6-48ef-9d94-5c35594baa40)
+![image](https://github.com/user-attachments/assets/8955b2ac-1828-430c-ad60-34ad3440cf3e)
+
 
 
 
