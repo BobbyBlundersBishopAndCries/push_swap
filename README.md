@@ -26,4 +26,7 @@ the same algorithm until a has no more values :
 
 ![image](https://github.com/user-attachments/assets/1ac03f46-45c7-4a76-865a-f1d1cd0f789f)
 
+![image](https://github.com/user-attachments/assets/3c12c629-5497-4a4f-8ade-85866d3f5bc8)
+
+
 
