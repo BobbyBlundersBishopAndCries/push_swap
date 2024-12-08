@@ -34,7 +34,8 @@ using the chunks I have I should be able to sort the stack b in descending way (
 
 ![image](https://github.com/user-attachments/assets/8955b2ac-1828-430c-ad60-34ad3440cf3e)
 
-![image](https://github.com/user-attachments/assets/5658d613-accc-4031-a3c2-6827ebe21b90)
+![image](https://github.com/user-attachments/assets/aa5ca9c4-4a79-4416-a41b-743aa5af44b1)
+
 
 
 
