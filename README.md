@@ -19,4 +19,5 @@ first we take a stack a initalized with non repeated integer values :
 1- put it into an array and sort the array
 
 2- get the mid index value and the mid size as well(as shown in the picture)
-![image](https://github.com/user-attachments/assets/a85753da-fc8d-4f60-98b3-eeda92cf619b)
+![image](https://github.com/user-attachments/assets/94a1a121-630a-4fc3-8fd7-6c825065a674)
+
