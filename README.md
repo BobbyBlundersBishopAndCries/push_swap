@@ -22,11 +22,16 @@ first we take a stack a initalized with non repeated integer values :
 
 ![image](https://github.com/user-attachments/assets/94a1a121-630a-4fc3-8fd7-6c825065a674)
 
-the same algorithm until a has no more values :
+the same algorithm until a has the big values in ascending order:
 
 ![image](https://github.com/user-attachments/assets/1ac03f46-45c7-4a76-865a-f1d1cd0f789f)
 
 ![image](https://github.com/user-attachments/assets/3c12c629-5497-4a4f-8ade-85866d3f5bc8)
+
+![image](https://github.com/user-attachments/assets/ca3879f7-1d31-4922-94d0-b761c065257d)
+
+using the chunks I have I should be able to sort the stack b in descending way (top of the stack / head of the stack has the biggest number and so on)
+
 
 
 
