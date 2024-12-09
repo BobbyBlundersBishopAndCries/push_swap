@@ -38,6 +38,12 @@ using the chunks I have I should be able to sort the stack b in descending way (
 
 ![image](https://github.com/user-attachments/assets/0df97f6c-2686-4507-bf37-f28e9046a6ff)
 
+edge cases where we use rr and rrr are:
+
+stack a->next is already in ascending order but the head value is the highest value , and stack b->next is already in descending order but the lowest value on head we use here : rr (rotation a and b and push all the b elements to a)
+
+now if a in ascending order and the lowest value is at last and  stack b in descending order and the highest value in the last node so we use : rrr (reverse rotation to a and b and push all the elements of b to a)
+
 
 
 
