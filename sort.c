@@ -6,7 +6,7 @@
 /*   By: mohabid <mohabid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:28:59 by mohabid           #+#    #+#             */
-/*   Updated: 2024/12/13 04:09:11 by mohabid          ###   ########.fr       */
+/*   Updated: 2024/12/18 03:16:19 by mohabid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@ t_stack	*highest(t_stack *a)
 	return (highest);
 }
 
+t_stack	*lowest(t_stack *b)
+{
+	t_stack	*lowest;
+	t_stack	*current;
+
+	if (b == NULL)
+		return (NULL);
+	current = b;
+	lowest = b;
+	indexation(b);
+	while (current != NULL)
+	{
+		if (current-> data < lowest->data)
+			lowest = current;
+		current = current->next;
+	}
+	return (lowest);
+}
+
 void	sort_three(t_stack **a)
 {
 	t_stack	*highest_node;
@@ -43,30 +62,30 @@ void	sort_three(t_stack **a)
 		swap_a(a);
 }
 
-void	partition_stack(t_stack **a, t_stack **b, int pivot)
+void	sort_two_a(t_stack **a)
 {
-	int	size;
-	int	pb_count;
-	int	ra_count;
-	t_stack	*current;
+	if ((*a)->data > (*a)->next->data)
+		swap_a(a);
+}
 
-	size = ft_lstsize(*a);
-	pb_count = 0;
-	ra_count = 0;
-	current = *a;
-	while (size)
-	{
-		if ((*a)->data < pivot)
-		{
-			//t_stack *tmp = current;
-			push_b(b, a);
-			pb_count++;
-			size--;
-		}
-		else
-		{
-			rotation_a(a);
-			ra_count++;
-		}
-	}
+void	sort_five(t_stack **a)
+{
+	t_stack	*lowest_node;
+	t_stack **b;
+
+	b = malloc(sizeof(t_stack*));
+	if (!b)
+		return ;
+	*b = NULL;
+	lowest_node = lowest(*a);
+	prep_for_push_a(a, lowest_node);
+	push_b(b, a);
+	lowest_node = lowest(*a);
+	prep_for_push_a(a,lowest_node);
+	push_b(b, a);
+	sort_three(a);
+	sort_two_b(b);
+	push_a(a, b);
+	push_a(a, b);
+	free(b);
 }

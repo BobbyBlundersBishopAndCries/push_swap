@@ -6,7 +6,7 @@
 /*   By: mohabid <mohabid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:38:38 by mohabid           #+#    #+#             */
-/*   Updated: 2024/12/13 03:47:13 by mohabid          ###   ########.fr       */
+/*   Updated: 2024/12/17 19:27:19 by mohabid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ void	reverse_rotatation_no_log(t_stack **stack)
 	bf_last->next = NULL;
 }
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
+// int	main(int argc, char **argv)
+// {
+// 	t_stack	*a;
+// 	t_stack	*b;
 
-	a = check_init(argc, argv);
-	b = NULL;
-	sort_stack(&a, &b);
-	free_stack(&a);
-	return (0);
-}
+// 	a = check_init(argc, argv);
+// 	b = NULL;
+// 	sort_stack(&a, &b);
+// 	free_stack(&a);
+// 	return (0);
+// }

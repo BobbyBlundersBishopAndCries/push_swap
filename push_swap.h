@@ -6,7 +6,7 @@
 /*   By: mohabid <mohabid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 22:51:18 by mohabid           #+#    #+#             */
-/*   Updated: 2024/12/13 03:08:01 by mohabid          ###   ########.fr       */
+/*   Updated: 2024/12/18 03:15:08 by mohabid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 {
 	int				data;
 	struct s_stack	*next;
+	int				above_median;
 }				t_stack;
 
 /* stack definition utils.c */
@@ -58,13 +59,17 @@ char	*ft_substr(char *s, unsigned int start, size_t len);
 /* get_mid_index_value.c */
 int		get_median(t_stack *a);
 /* sort.c */
-void	restore_rotations(t_stack **a, int ra_count);
+void	sort_five(t_stack **a);
 t_stack	*highest(t_stack *a);
 void	sort_three(t_stack **a);
-void	partition_stack(t_stack **a, t_stack **b, int pivot);
-/* s_algo.c*/
-void	sort_stack(t_stack **a, t_stack **b);
-int		is_stack_sorted(t_stack *stack);
+t_stack	*lowest(t_stack *b);
+void	sort_two_a(t_stack **a);
+void	sort_two_b(t_stack **a);
+/* prep_for_push.c */
+void	indexation(t_stack *a);
+void	prep_for_push_a(t_stack **a, t_stack *cheapest);
+void	prep_for_push_b(t_stack **a, t_stack *cheapest);
+int		is_sorted(t_stack *a);
 /* main.c */
 void	reverse_rotatation_no_log(t_stack **stack);
 void	rotation_no_log(t_stack **stack);
