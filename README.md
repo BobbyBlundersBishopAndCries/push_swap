@@ -12,7 +12,9 @@ https://runestone.academy/ns/books/published/pythonds/BasicDS/TheStackAbstractDa
 
 https://www.youtube.com/watch?v=R9PTBwOzceo&list=PLBlnK6fEyqRi3-lvwLGzcaquOs5OBTCww
 
-# Illustrating the lart sort algorithm with examples
+# Illustrating the large sort algorithm with examples
+
+sort the stack into an array get his mid index ,mid = size / 2 if (size % 2 == 1) else mid = size / 2 - 1
 
 ![image](https://github.com/user-attachments/assets/812885c1-7706-4d1a-b702-46e4e00422de)
 
