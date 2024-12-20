@@ -16,9 +16,8 @@ https://www.youtube.com/watch?v=R9PTBwOzceo&list=PLBlnK6fEyqRi3-lvwLGzcaquOs5OBT
 
 sort the stack into an array get his mid index ,mid = size / 2 if (size % 2 == 1) else mid = size / 2 - 1
 
-![image](https://github.com/user-attachments/assets/812885c1-7706-4d1a-b702-46e4e00422de)
-
-![image](https://github.com/user-attachments/assets/73b2b54d-726b-469d-b420-5a20bae1a977)
+![image](https://github.com/user-attachments/assets/d23e52a0-0130-4f2c-828b-8ec6e9dce69c)
+7)
 
 
 
