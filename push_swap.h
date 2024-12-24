@@ -5,74 +5,99 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohabid <mohabid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 22:51:18 by mohabid           #+#    #+#             */
-/*   Updated: 2024/12/18 03:15:08 by mohabid          ###   ########.fr       */
+/*   Created: 2024/12/22 12:59:19 by mohabid           #+#    #+#             */
+/*   Updated: 2024/12/22 12:59:21 by mohabid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
-# include <stdlib.h>
+# include <fcntl.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+
+typedef enum a_bool
+{
+	FALSE = 0,
+	TRUE = 1,
+}					t_bool;
 
 typedef struct s_stack
 {
-	int				data;
+	int				num;
+	int				index;
 	struct s_stack	*next;
-	int				above_median;
-}				t_stack;
+}					t_stack;
 
-/* stack definition utils.c */
-int		is_data_repeated(t_stack *stack, int value);
-t_stack	*check_init(int ac, char **av);
-char	*ft_strchr(char *s, int c);
-/* functions_a.c */
-void	swap_a(t_stack **a);
-void	push_a(t_stack **dest, t_stack **src);
-void	rotation_a(t_stack **a);
-void	reverse_rotation_a(t_stack **a);
-int		add_back(t_stack **a, int value);
-/* functions_b.c */
-void	swap_b(t_stack **a);
-void	push_b(t_stack **dest, t_stack **src);
-void	rotation_b(t_stack **a);
-void	reverse_rotation_b(t_stack **a);
-void	free_stack(t_stack **stack);
-/* utils helper.c */
-void	ss(t_stack **a, t_stack **b);
-void	rr(t_stack **stack1, t_stack **stack2);
-void	rrr(t_stack **stack1, t_stack **stack2);
-int		ft_lstsize(t_stack *stack);
-t_stack	*ft_lstlast(t_stack *lst);
-/* ft_split.c */
-char	**ft_split(char *av, char c);
-size_t	ft_strlen(char *s);
-/* ft_string_fd.c */
-int		costum_atoi(char *nptr);
-int		ft_strcmp(char *s1, char *s2);
-void	ft_putendl_fd(char *s, int fd);
-/* ft_substr.c */
-char	*ft_substr(char *s, unsigned int start, size_t len);
-/* get_mid_index_value.c */
-int		get_median(t_stack *a);
-/* sort.c */
-void	sort_five(t_stack **a);
-t_stack	*highest(t_stack *a);
-void	sort_three(t_stack **a);
-t_stack	*lowest(t_stack *b);
-void	sort_two_a(t_stack **a);
-void	sort_two_b(t_stack **a);
-/* prep_for_push.c */
-void	indexation(t_stack *a);
-void	prep_for_push_a(t_stack **a, t_stack *cheapest);
-void	prep_for_push_b(t_stack **a, t_stack *cheapest);
-int		is_sorted(t_stack *a);
-/* main.c */
-void	reverse_rotatation_no_log(t_stack **stack);
-void	rotation_no_log(t_stack **stack);
-void	swap_no_log(t_stack **stack);
-int		main(int argc, char **argv);
+typedef struct s_chunk
+{
+	int				size;
+	int				offset;
+	int				position;
+}					t_chunk;
+
+/*========== Pasring ==========*/
+char				**get_values(char **av, int ac);
+char				**ft_split_numbers(char **av, int ac, int size);
+char				**ft_split(char const *s, char c);
+unsigned int		count_words(const char *s, char c);
+void				create_stack(t_stack **stack_a, char **strings);
+/*========== Checkers ==========*/
+t_bool				check_dub(t_stack *stack, int num);
+t_bool				checking_syntax(char *number);
+t_bool				is_sorted(t_stack *stack);
+/*========== Utils ==========*/
+size_t				ft_strlen(const char *s);
+int					ft_lstsize(t_stack *lst);
+void				free_all(t_stack **stack_a, char **strings, int flag);
+void				free_func(char **strings);
+long				ft_atoi(const char *nptr);
+void				ft_lstadd_back(t_stack **lst, t_stack *new);
+void				ft_lstclear(t_stack **lst);
+t_stack				*ft_lstnew(int content);
+t_stack				*ft_lstlast(t_stack *lst);
+/*========== printing =========*/
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putchar_fd(char c, int fd);
+/*========== Commands ==========*/
+void				func_swap(t_stack **stack, int flag);
+void				func_ss(t_stack **stack_a, t_stack **stack_b, int flag);
+void				func_push(t_stack **stack_from, t_stack **stack_to,
+						int flag);
+void				func_rotate(t_stack **stack, int flag);
+void				func_rev_rotate(t_stack **stack, int flag);
+void				func_rr(t_stack **stack_a, t_stack **stack_b, int flag);
+void				func_rrr(t_stack **stack_a, t_stack **stack_b, int flag);
+/*========== sort Stack ==========*/
+void				push_swap(t_stack **stack_a, t_stack **stack_b);
+void				sort_3(t_stack **stack_a);
+void				sort_5(t_stack **stack_a, t_stack **stack_b,
+						int flag);
+void				indexing(t_stack **stack);
+t_stack				*min_num(t_stack **stack);
+int					min_num_pos(t_stack **stack);
+int					n_chunks(int size);
+int					highest_index(t_stack *stack);
+int					pos_finder(t_stack **stack, int pos);
+/*============== BONUS =============*/
+char				*ft_strjoin(char *s1, char *s2);
+char				*ft_strchr(char *s, char c);
+char				*read_lines(int fd, char *get_line);
+char				*lines(char *read_lines);
+char				*new_lines(char *read_lines);
+char				*get_next_line(int fd);
+int					ft_strcmp(char *s1, char *s2);
+void				exec_instructions(char *line, t_stack **stack_a,
+						t_stack **stack_b);
+void				read_in(t_stack **stack_a, t_stack **stack_b);
+void				check_if_sorted(t_stack *stack_a);
+int					five_four(t_stack **stack_a);
+
 #endif

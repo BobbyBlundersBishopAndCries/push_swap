@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   conv_nums.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohabid <mohabid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 12:56:54 by mohabid           #+#    #+#             */
-/*   Updated: 2024/12/22 13:00:19 by mohabid          ###   ########.fr       */
+/*   Created: 2024/12/22 12:56:09 by mohabid           #+#    #+#             */
+/*   Updated: 2024/12/22 12:56:11 by mohabid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *s)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	char	**strings;
+	size_t	i;
 
-	if (ac == 1)
-		return (1);
-	stack_a = NULL;
-	stack_b = NULL;
-	strings = get_values(av, ac);
-	create_stack(&stack_a, strings);
-	if (!is_sorted(stack_a))
-		push_swap(&stack_a, &stack_b);
-	ft_lstclear(&stack_a);
-	return (0);
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+long	ft_atoi(const char *nptr)
+{
+	int			x;
+	int			sign;
+	long int	number;
+
+	x = 0;
+	sign = 1;
+	number = 0;
+	if (nptr[x] == '+' || nptr[x] == '-')
+	{
+		if (nptr[x++] == '-')
+			sign *= -1;
+	}
+	while (nptr[x] >= '0' && nptr[x] <= '9')
+	{
+		number = number * 10 + (nptr[x] - 48);
+		x++;
+	}
+	return (number * sign);
 }

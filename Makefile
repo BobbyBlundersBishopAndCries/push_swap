@@ -1,21 +1,34 @@
-CC = cc
+SRC= push_swap.c ft_split.c parsing.c conv_nums.c checkers.c printing.c utils.c commands.c commands_2.c push_swap_utils.c push_swap_utils_2.c
 
-NAME = push_swap
+SRC_BONUS= $(SRC) checker_bonus.c get_next_line.c get_next_line_utils.c
+OBJ_BONUS= $(SRC_BONUS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+OBJ= $(SRC:.c=.o)
+NAME= push_swap
+CC= cc
+CFLAGS= -Wall -Wextra -Werror
 
-SRCS =  stack_definition_utils.c main.c ft_split.c ft_string_fd.c functions_a.c functions_b.c get_mid_index_value.c  sort.c utils_helper.c ft_substr.c s_algo.c
-OBJ = $(SRCS:.c=.o)
+NAME_BONUS= checker
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) 
+$(NAME): $(OBJ) main.c
+	$(CC) $(CFLAGS) $^ -o $(NAME) 
+
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
+	rm -f $(OBJ_BONUS)
+	rm -rf main.o
+
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
+	rm -f $(NAME_BONUS)
+
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_BONUS)
+	$(CC) $(CFLAGS) $^ -o $(NAME_BONUS)
 
 re: fclean all
 
-.PHONY : clean re all fclean
+.PHONY: all NAME clean fclean re
